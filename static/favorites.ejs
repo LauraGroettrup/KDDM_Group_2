@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorites</title>
+    <link rel="stylesheet" type="text/css" href="screen.css" />
+    <link rel="stylesheet" media="print" href="print.css" />
+    <script src="func.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <% if(locals.User){ %>
+        <a href="/favorites">Favorites</a>
+        <a href="/logout" >Logout</a>
+      <% } %>
+      <div class="search-container">
+        <form action="/favorites" method="GET">
+            <% if(locals.User){ %>
+                <label>Welcome, <%- locals.User %>!    </label>
+              <% } else{ %>  
+                <a href="/login" >Login</a>
+              <% } %>  
+          <input name="query" id="" placeholder="Search" type="text">
+          <button >Search</button>
+        </form>
+      </div>
+    </div>
+ <br/>
+    <div id="tv" class="container">
+        <h1>Your Favorites</h1>
+        <% if (!locals.Search) { %>
+            <% if (locals.Movies.length != 0) { %>
+                <% var keys = Object.keys(locals.Movies); %>
+                <% var maxIndex = locals.Page * 50 < locals.Movies.length ? locals.Page * 50 : locals.Movies.length ; %>
+                <% for (var i = ((locals.Page - 1) * 50); i < maxIndex; i++) { %>
+                    <a href="/q/<%= locals.Movies[i].entries().next().value[0] %>" class="link"><%=(locals.Movies[i].entries().next().value[1].primaryTitle || ' ') + " - " + locals.Movies[i].entries().next().value[1].startYear%></a><br/>
+                <% } %>
+                <% var counter = 0; %>
+                <div class="page-numbers">
+                    <% for (var j = 0; j < locals.Movies.length/50; j+=1) { %>
+                        <a href="/?page=<%= ++counter %>" class="page-numbers"><%= counter %> </a>
+                    <% } %>
+                </div>
+            <% } else { %>
+                <p>No matching movie found.</p>
+            <% } %>
+        <% } else { %>
+            <% for (var word in locals.Movies) { %>
+                <a href="/q/<%= Object.keys(locals.Movies[word])[0] %>" class="link"><%=locals.Movies[word][Object.keys(locals.Movies[word])[0]].primaryTitle || ' '%></a><br/>
+            <% } %>
+        <% } %>
+        <br/>
+    </div>
+    <br/>
+    <div class="footer">
+      <a href="/about" >About us</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="screen.css" />
+    <link rel="stylesheet" media="print" href="print.css" />
+    <title>Login</title>
+</head>
+<body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <% if(locals.User){ %>
+        <a href="/new">Post a new question</a>
+        <a href="/logout" >Logout</a>
+      <% } %>
+      <div class="search-container">
+
+            <% if(locals.User){ %>
+                <label>Welcome, <%- locals.User %>!    </label>
+              <% } else{ %>  
+                <a href="/login" >Login</a>
+              <% } %>  
+      </div>
+    </div>
+    <br/>
+    <div class="login container" id="tvw">
+        <form action="/login" method="POST">
+            <h2>Login</h2>
+            <input type="text" name="username" class="input" placeholder="Username">
+            <br/>
+            <br/>
+            <input type="password" name="password" class="input" align="left" placeholder="Password">
+            <br/>
+            <br/>
+            <button type="submit">Login</button>
+            <br/>
+            <br/>
+            <a href="/register">Don't have an account yet? Register here</a><br/><br/>
+            <% if(locals.Message){ %>
+                <p><%- locals.Message %> </p>
+              <% } %>
+            <label name="message"></label>
+        </form>
+
+    </div>
+    <div class="footer">
+      <a href="/about" >About us</a>
+    </div>
+</body>
+</html>

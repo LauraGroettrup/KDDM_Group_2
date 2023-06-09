@@ -1,0 +1,240 @@
+.link {
+  display: block;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border: 2px solid #b5ffb3;
+  margin: 0.5rem;
+  border-bottom-width: 3px;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  position: relative;
+  background-color: #333;
+  color: white;
+}
+
+.suggested {
+  float: right;
+  width: 22%;
+  margin: 10px;
+  padding: 20px;
+  padding-right: 30px;
+  margin-top: 15px;
+  text-align: justify;
+  color: white;
+  background-color: dimgrey; /*rgb(71, 11, 140);*/
+  border-radius: 10px;
+}
+/* ---------------------------------- */
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #333;
+    height:100%;
+}
+
+body h1{
+    font-weight: 600;
+}
+body hr{
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255)
+}
+textarea{
+    width: 100%;
+    height: 50px;
+}
+.container{
+    width: auto;
+    margin: 1rem auto;
+    padding: 2rem;
+    text-align: justify;
+    color: white;
+    background-color: dimgrey; /*rgb(71, 11, 140);*/
+}
+.container p{
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+    word-spacing: 2px;
+}
+.container a {
+  color: white;
+}
+.fix {
+    position: fixed;
+}
+.page-numbers {
+  text-align: center;
+  color: #333;
+}
+
+@media screen and (max-width:600px){
+    .container{
+        width: 100%;
+        padding: 1rem;
+    }
+}
+
+#tv {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    border-radius: 0.75rem;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+#tvw {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+#tvw:hover {
+    border-radius: 0% 0% 30% 30% / 0% 0% 5% 5% ;
+    box-shadow: 5px 5px rgba(0,0,0,.25);
+}
+
+h1 {
+  text-align: center;
+}
+
+/* -------------------- */
+.footer {
+  bottom:0;
+  width:33%;
+  left: 0;
+  background-color: dimgrey;
+  color: white;
+  text-align: center;
+  right: 0;
+  display: block;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  margin: auto;
+  padding: auto;
+  margin-top: 30px;
+}
+img {
+  width: 100%;
+}
+code {
+  width: auto;
+  text-align: justify;
+  overflow: scroll;
+}
+pre {
+  overflow: auto;
+}
+
+.footer a {
+    display: block;
+    text-align: center;
+    padding: 0px 0px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    border-radius: 0.25rem;
+    align-self: center;
+    align-items: center;
+    align-content: center;
+  }
+  
+.footer a:hover {
+    background-color: #555;
+    color: #b5ffb3;
+  }
+
+/* -------------------- */
+.topnav {
+    overflow: hidden;
+    background-color: dimgrey;
+    color: white;
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    color: white;
+    border-radius: 0.25rem;
+  }
+  
+  .topnav a:hover {
+    background-color: #555;
+    color: #b5ffb3;
+  }
+  
+  .topnav .search-container {
+    float: right;
+  }
+
+  .topnav label {
+    padding-right: 10px;
+    vertical-align: middle;
+  }
+  
+  .topnav input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border: none;
+    color: white;
+    background-color: #333;
+    border: 1px solid #b5ffb3;
+    border-radius: 0.25rem;
+  }
+  
+  .topnav input[type=text]:hover {
+    background-color: #555;
+  }
+  
+  .topnav input[type=text]:focus {
+  background-color: #555;
+  border: 1px solid #b5ffb3;
+  border-radius: 0.25rem;
+  }
+  
+  .topnav .search-container button {
+    float: right;
+    padding: 6px;
+    margin-top: 8px;
+    margin-right: 16px;
+    margin-left: 10px;
+    background: #333;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    border-radius: 0.25rem;
+  }
+  
+  .topnav .search-container button:hover {
+    background: #555;
+    color: #b5ffb3;
+    
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav .search-container {
+      float: none;
+    }
+    .topnav a, .topnav input[type=text], .topnav .search-container button {
+      float: none;
+      display: block;
+      text-align: left;
+      width: 100%;
+      margin: 0;
+      padding: 14px;
+    }
+    .topnav input[type=text] {
+      border: 1px solid #ccc;  
+    }
+  }

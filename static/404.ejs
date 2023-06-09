@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="screen.css" />
+    <link rel="stylesheet" media="print" href="print.css" />
+    <title>ERROR: 404</title>
+</head>
+<body>
+   <div class="topnav">
+      <a href="/">Home</a>
+      <% if(locals.User){ %>
+        <a href="/favorites">Favorites</a>
+        <a href="/logout" >Logout</a>
+      <% } %>
+      <div class="search-container">
+        <form action="/search" method="GET">
+            <% if(locals.User){ %>
+                <label>Welcome, <%- locals.User %>!    </label>
+              <% } else{ %>  
+                <a href="/login" >Login</a>
+              <% } %>  
+          <input name="query" id="" placeholder="Search" type="text">
+          <button >Search</button>
+        </form>
+      </div>
+    </div>
+    <br/>
+    <div id="tvw" class="container">
+        <h1 style="color:#b5ffb3">ERROR: 404</h1>
+    </div>
+    <div class="footer">
+      <a href="/about" >About us</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KDDM1 - Movie Page</title>
+  <link rel="stylesheet" type="text/css" href="/screen.css" />
+  <link rel="stylesheet" type="text/css" href="/favorite.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="/favorite.js" defer></script>
+</head>
+
+<body>
+  <div class="topnav">
+    <a href="/">Home</a>
+    <% if(locals.User){ %>
+    <a href="/favorites">Favorites</a>
+    <a href="/logout">Logout</a>
+    <% } %>
+    <div class="search-container">
+        <% if(locals.User){ %>
+        <label>Welcome, <%- locals.User %>!</label>
+        <% } else{ %>
+        <a href="/login">Login</a>
+        <% } %>
+    </div>
+  </div>
+
+  <div class="container" id="tv">
+    <% if (locals.movie) { %>
+    <h1><%= locals.movie.primaryTitle %></h1>
+    <p>Orginal title: <%= locals.movie.originalTitle %></p>
+    <p>Kind of work: <%= locals.movie.titleTypes %></p>
+    <p>Genre: <%= locals.movie.genres %></p>
+    <p>Start year: <%= locals.movie.startYear %></p>
+    <p>Rating: <%= locals.movie.averageRating %>/10 with <%=locals.movie.numVotes %> votes </p>
+    <% } else { %>
+    <p>Movie not found.</p>
+    <% } %>
+    </br>
+    <div class="favorite <%= locals.Favorites && locals.Favorites.includes(locals.movie.tconst) ? 'active' : '' %>" style="text-align: center;" onclick="toggleFavorite('<%= locals.UserId %>', '<%= locals.movie.tconst %>',  <%= JSON.stringify(locals.Favorites) %>)">
+        <i class="fas fa-heart" active></i>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a href="/about">About us</a>
+  </div>
+</body>
+
+</html>

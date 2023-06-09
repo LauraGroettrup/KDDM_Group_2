@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" type="text/css" href="screen.css" />
+    <link rel="stylesheet" media="print" href="print.css" />
+    <script src="func.js"></script>
+</head>
+
+<body>
+    <div class="topnav">
+      <a href="/">Home</a>
+      <% if(locals.User){ %>
+        <a href="/favorites">Favorites</a>
+        <a href="/logout" >Logout</a>
+      <% } %>
+      <div class="search-container">
+        <% if(locals.User){ %>
+            <label>Welcome, <%- locals.User %>!</label>
+        <% } else{ %>  
+            <a href="/login" >Login</a>
+        <% } %>  
+      </div>
+    </div>
+    <br/>
+    <div class="container" id="tvw">
+        <h1>About us: </h1>
+        <p class="link">Name, MatNumber<br/></p>
+        <p class="link">Name, MatNumber<br/></p>
+        <p class="link">Name, MatNumber</p>
+        <p class="link">Name, MatNumber</p>
+    </div>
+</body>
+</html>

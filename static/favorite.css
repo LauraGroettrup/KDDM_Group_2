@@ -1,0 +1,8 @@
+.favorite i.fas.fa-heart {
+    color: #ccc;
+    font-size: 48px;
+}
+
+.favorite.active i.fas.fa-heart {
+    color: #ff0000;
+}
